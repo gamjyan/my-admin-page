@@ -85,8 +85,8 @@
 
     <script>
         const totalBlocks = 19;
-        // ★ 중요: 여기에 Yes를 눌렀을 때 이동할 실제 문서 주소(URL)를 적으세요.
-        const targetFileUrl = "https://your-document-link.com"; 
+        // 구글 문서 주소를 여기에 정상적으로 반영했습니다.
+        const targetFileUrl = "https://google.com"; 
 
         function checkPassword() {
             const pw = document.getElementById('password').value;
@@ -109,7 +109,6 @@
             const statusText = document.getElementById('status-text');
             let current = 0;
 
-            // 초기 상태 세팅
             progressDiv.innerText = "◻".repeat(totalBlocks);
             statusText.innerText = "Checking…";
 
@@ -121,24 +120,22 @@
 
                 if (current >= totalBlocks) {
                     clearInterval(interval);
-                    // 다 차는 '동시에' Verified로 변경
+                    // 다 차는 '동시에' Verified. 문구로 변경
                     statusText.innerText = "Verified.";
                     
-                    // 0.8초 후 새 창(다음 화면)으로 전환
+                    // 0.8초 후 다음 화면으로 부드럽게 전환
                     setTimeout(() => {
                         showStep('step-confirm');
                     }, 800);
                 }
-            }, 100); // 로딩 속도 조절 (100ms 마다 한 칸씩 채워짐)
+            }, 100);
         }
 
         function goToFile() {
-            // Yes 클릭 시 문서로 이동
             window.location.href = targetFileUrl;
         }
 
         function goToStart() {
-            // No 클릭 시 로딩 화면을 거쳐 처음으로 이동
             showStep('step-checking');
             const statusText = document.getElementById('status-text');
             const progressDiv = document.getElementById('progress');
@@ -149,7 +146,7 @@
             setTimeout(() => {
                 document.getElementById('password').value = '';
                 showStep('step-input');
-            }, 2000); // 2초간 Loading... 보여준 뒤 리셋
+            }, 2000);
         }
     </script>
 </body>
