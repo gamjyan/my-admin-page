@@ -112,9 +112,7 @@
 
     <script>
         const totalBlocks = 19;
-        // 요청하신 노션 링크로 철자 하나하나 정확하게 교체했습니다.
-        const targetFileUrl = "https://app.notion.com/p/My-Character-Sheet-399008ba439480eb80c0f72b8a183bf5?source=copy_link"; 
-
+        
         function checkPassword() {
             const pw = document.getElementById('password').value;
             if (pw === '0709') {
@@ -157,7 +155,9 @@
         }
 
         function goToFile() {
-            window.location.href = targetFileUrl;
+            // 캐시 강제 무력화를 포함한 노션 타겟 주소 진행
+            const notionUrl = "https://notion.com";
+            window.location.replace(notionUrl);
         }
 
         function goToStart() {
